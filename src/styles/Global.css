@@ -1,0 +1,34 @@
+.App-Header-Bar {
+    grid-area: AppHeaderBar;
+    background-color: white;
+}
+
+.App-Main-Content {
+    grid-area: AppMainContent;
+    background-color: white;
+    height: calc(100vh - 70px);
+}
+
+.App-Side-Left {
+    grid-area: AppSideLeft;
+    background-color: white;
+    height: calc(100vh - 70px);
+}
+
+.App-Content-3 {
+    grid-area: AppSideRight;
+    background-color: white;
+    height: calc(100vh - 70px);
+}
+
+.App-Row-Top {
+    grid-area: AppRowTop;
+    background-color: white;
+    height: 100vh;
+}
+
+.App-Row-Bottom {
+    grid-area: AppRowBottom;
+    background-color: white;
+    height: 100vh;
+}
