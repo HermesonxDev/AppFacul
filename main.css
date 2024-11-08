@@ -40,3 +40,27 @@
     grid-template-rows: 70px 50% 50%;
     grid-template-areas: "AppHeaderBar" "AppRowTop" "AppRowBottom";
 }
+
+.banner {
+    background: url('./src/assets/img/room.jpg');
+    height: 93vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer {
+    border-top: 1px solid gray;
+}
