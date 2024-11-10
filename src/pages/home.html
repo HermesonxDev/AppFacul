@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Material Maker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar .nav-link {
+            color: #fff !important; /* Mantém o texto branco nas opções do menu */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Material Maker</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Cadastros Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cadastrosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Cadastros
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="cadastrosDropdown">
+                            <li><a class="dropdown-item" href="./studentRegistration.html">Alunos</a></li>
+                            <li><a class="dropdown-item" href="./teacherRegistration.html">Professores</a></li>
+                            <li><a class="dropdown-item text-secondary" href="#">Materiais</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Listagens Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="listagensDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Listagens
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="listagensDropdown">
+                            <li><a class="dropdown-item" href="#">Alunos</a></li>
+                            <li><a class="dropdown-item" href="#">Professores</a></li>
+                            <li><a class="dropdown-item" href="#">Materiais</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Logout Button -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="container mt-5">
+        <h1 class="text-center">Bem-vindo ao Material Maker</h1>
+        <p class="text-center">Selecione uma opção no menu para começar.</p>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
