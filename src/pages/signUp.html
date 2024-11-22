@@ -14,22 +14,25 @@
         <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
             <h2 class="text-center mb-4">Cadastro</h2>
             <form>
+
+                <!-- Name Field -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome de usuário</label>
+                    <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
+                </div>
+
+
                 <!-- Email Field -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="exemplo@email.com" required>
+                    <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
                 </div>
                 
+
                 <!-- Password Field -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha</label>
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
-                </div>
-                
-                <!-- Remember Me Checkbox -->
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
                 </div>
 
                 <!-- Login Button -->
@@ -44,5 +47,7 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/signUp.js"></script>
 </body>
 </html>
