@@ -1,16 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
-    // URL para buscar os dados
     const apiUrl = 'http://localhost:3000/users/getAll/';
+    const deleteUrl = 'http://localhost:3000/users/delete/';
+    const updateUrl = 'http://localhost:3000/users/update/';
 
-    // Função para buscar os dados da API
     async function fetchStudents() {
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) throw new Error('Erro ao buscar os dados dos estudantes.');
 
-            const data = await response.json(); // Converte a resposta em JSON
-
-            // Retorna somente os usuários do tipo "Aluno"
+            const data = await response.json();
             return (data.users || []).filter(user => user.type === 'Aluno');
         } catch (error) {
             console.error(error);
@@ -19,10 +17,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 
-    // Função para exibir os dados na tabela
     function displayStudents(studentList) {
         const tableBody = document.getElementById('student-list');
-        tableBody.innerHTML = ''; // Limpa o conteúdo anterior
+        tableBody.innerHTML = '';
 
         studentList.forEach(function (student) {
             const row = document.createElement('tr');
@@ -39,20 +36,52 @@ document.addEventListener('DOMContentLoaded', async function () {
             cellEmail.textContent = student.email;
             row.appendChild(cellEmail);
 
+            const cellActions = document.createElement('td');
+            cellActions.classList.add('d-flex', 'gap-2');
+
+            // Botão Editar
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Editar';
+            editButton.classList.add('btn', 'btn-warning', 'btn-sm');
+            editButton.addEventListener('click', function () {
+                // Redireciona para a página de edição com o ID do usuário na URL
+                window.location.href = `editUser.html?id=${student.id}`;
+            });
+            cellActions.appendChild(editButton);
+
+            // Botão Deletar
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Deletar';
+            deleteButton.classList.add('btn', 'btn-danger', 'btn-sm');
+            deleteButton.addEventListener('click', async function () {
+                if (confirm(`Tem certeza que deseja deletar o estudante ${student.name}?`)) {
+                    try {
+                        const response = await fetch(`${deleteUrl}${student.id}`, { method: 'DELETE' });
+                        if (!response.ok) throw new Error('Erro ao deletar o estudante.');
+                        alert('Estudante deletado com sucesso!');
+                        const updatedStudents = await fetchStudents(); // Atualiza a lista após exclusão
+                        displayStudents(updatedStudents);
+                    } catch (error) {
+                        console.error(error);
+                        alert('Erro ao deletar o estudante. Por favor, tente novamente.');
+                    }
+                }
+            });
+            cellActions.appendChild(deleteButton);
+
+            row.appendChild(cellActions);
             tableBody.appendChild(row);
         });
     }
 
-    // Busca os estudantes da API e exibe na tabela
     const students = await fetchStudents();
     displayStudents(students);
 
-    // Filtragem pelo campo de pesquisa
     document.getElementById('search').addEventListener('keyup', function () {
         const searchValue = this.value.toLowerCase();
-        const filteredStudents = students.filter(function (student) {
-            return student.name.toLowerCase().includes(searchValue);
-        });
+        const filteredStudents = students.filter(student =>
+            student.name.toLowerCase().includes(searchValue)
+        );
         displayStudents(filteredStudents);
     });
 });
