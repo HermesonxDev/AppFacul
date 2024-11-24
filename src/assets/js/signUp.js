@@ -13,10 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await axios.post("http://localhost:3000/users/create/", data);
 
-            console.log(response)
-
             if (response.status === 201) {
                 alert("Usuário criado com sucesso!");
+                localStorage.setItem('logged', 'true');
                 window.location.href = "../pages/home.html";
                 form.reset();
             } else {

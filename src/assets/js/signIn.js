@@ -9,10 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await axios.post("http://localhost:3000/users/checkUser/", {email});
 
-            console.log(response)
-
             if (response.status === 200) {
                 alert("Usuário logado com sucesso!");
+                localStorage.setItem('logged', 'true');
                 window.location.href = "../pages/home.html";
                 form.reset();
             } else {
