@@ -35,28 +35,7 @@
 
     <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- Script para enviar o formulário -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.getElementById("userForm");
-
-            form.addEventListener("submit", async function(event) {
-                event.preventDefault();
-
-                const formData = new FormData(form);
-                const data = Object.fromEntries(formData.entries());
-
-                try {
-                    const response = await axios.post("URL_DO_BACKEND", data);
-                    alert("Usuário cadastrado com sucesso!");
-                    console.log(response.data);
-                    form.reset(); // Limpa o formulário após o envio
-                } catch (error) {
-                    alert("Erro ao cadastrar o usuário.");
-                    console.error(error);
-                }
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/createTeacher.js"></script>
 </body>
 </html>

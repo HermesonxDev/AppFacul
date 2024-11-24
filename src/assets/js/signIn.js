@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("email").value;
 
         try {
-            const response = await axios.post("http://localhost:3000/users/checkUser/", {email});
+            const response = await axios.post("http://localhost:3000/users/check/", {email});
 
             if (response.status === 200) {
                 alert("Usuário logado com sucesso!");
